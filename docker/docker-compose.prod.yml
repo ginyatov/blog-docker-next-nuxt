@@ -1,0 +1,15 @@
+version: "3.8"
+services:
+  frontend:
+    build:
+      context: ../frontend
+      dockerfile: Dockerfile.prod
+    environment:
+      NODE_ENV: production
+      STRAPI_URL: http://strapi:1337
+    command:
+      "yarn start"
+  strapi:
+    environment:
+      NODE_ENV: production
+    command: "strapi start"
